@@ -19,7 +19,7 @@ locals {
   multi_az = var.is_dev_environment ? false : true
 
   # Set the instance class based on environment
-  instance_class = var.is_dev_environment ? "db.t3.micro" : "db.t3.micro"
+  instance_class = var.is_dev_environment ? "db.t3.micro" : "db.m5d.8xlarge"
 }
 
 # Create a KMS key for RDS encryption
