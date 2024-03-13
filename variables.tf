@@ -1,3 +1,9 @@
+variable "aws_region" {
+  description = "AWS region"
+  type        = string
+  default     = "eu-north-1"
+}
+
 variable "identifier" {
   description = "The identifier for the RDS instance"
 }
@@ -6,13 +12,6 @@ variable "allocated_storage" {
   description = "The amount of storage to allocate to the RDS instance"
 }
 
-variable "engine_version" {
-  description = "The version of the database engine to use"
-}
-
-variable "instance_class" {
-  description = "The instance class of the RDS instance"
-}
 
 variable "username" {
   description = "The username for the master user"
@@ -50,13 +49,26 @@ variable "common_tags_prod" {
     // Add more tags as needed
   }
 }
-variable "common_tags_dev" {
+variable "common_tags" {
   type        = map(string)
   description = "Common tags for resources"
   default = {
-    "Environment" = "Dev",
+    "Terraform" = "True",
     "Project"     = "A3",
     "Owner"       = "Yas",
     // Add more tags as needed
+  }
+}
+
+variable "environment" {
+  description = "environment"
+  type        = string
+  default     = "Dev"
+}
+
+variable "mysql_user_password_map" {
+  type = map(string)
+  default = {
+    #"user1" = "password1"
   }
 }
