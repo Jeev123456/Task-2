@@ -1,3 +1,9 @@
+variable "aws_region" {
+  description = "AWS region"
+  type        = string
+
+}
+
 variable "identifier" {
   description = "The identifier for the RDS instance"
 }
@@ -23,4 +29,17 @@ variable "rds_subnet_ids" {
 variable "common_tags" {
   type        = map(string)
   description = "Common tags for resources"
+
+}
+
+variable "vpc_id" {
+  description = "VPC ID where resources will be deployed."
+}
+variable "rds_security_group" {
+  description = "Security group for RDS"
+}
+
+
+variable "is_dev_environment" {
+  description = "The identifier for the RDS instance"
 }
